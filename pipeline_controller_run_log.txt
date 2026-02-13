@@ -1,0 +1,765 @@
+2026-02-11 12:29:25.008911: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-02-11 12:29:25.580386: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+INTEGRATED PIPELINE - DATA UPDATE + ML FORECASTING
+============================================================
+
+ PHASE 1: DATA UPDATE
+------------------------------
+
+ Processing data for lora-v1...
+ FORCE FETCHING TODAY'S DATA FOR: lora-v1
+Strategy 1: Scanning ALL recent data...
+   Fetched 5000 total items
+   Found 0 recent items (last 7 days)
+   Found 0 items from TODAY
+No today's data found, using most recent available
+lora-v1: Data fetch FAILED
+
+ Processing data for loradev2...
+ FORCE FETCHING TODAY'S DATA FOR: loradev2
+Strategy 1: Scanning ALL recent data...
+   Fetched 5380 total items
+   Found 0 recent items (last 7 days)
+   Found 0 items from TODAY
+No today's data found, using most recent available
+loradev2: Data fetch FAILED
+
+ Processing data for lora-v3...
+ FORCE FETCHING TODAY'S DATA FOR: lora-v3
+Strategy 1: Scanning ALL recent data...
+   Fetched 5409 total items
+   Found 0 recent items (last 7 days)
+   Found 0 items from TODAY
+No today's data found, using most recent available
+lora-v3: Data fetch FAILED
+
+ PHASE 2: ML FORECASTING
+------------------------------
+
+ Starting ML forecasting for lora-v1 (Station 1)
+Dataset: updated_real4_lora_v1.csv (100 days, 7,858 bytes)
+ Loaded lora-v1 cumulative dataset from local file: updated_real4_lora_v1.csv
+ Applying outlier detection for lora-v1 (Method: cap)
+   Temperature: Found 1 outliers
+   Pressure: Found 8 outliers
+ Outlier detection complete for lora-v1: 100 -> 100 records
+ Loaded 100 historical records for device lora-v1
+ Initialized pipeline for device: lora-v1 (Station 1)
+ Cumulative dataset loaded: 100 records
+ Starting pipeline for lora-v1 (Station 1)
+ Using cumulative dataset with 100 historical records
+ Loaded lora-v1 cumulative dataset from local file: updated_real4_lora_v1.csv
+ Applying outlier detection for lora-v1 (Method: cap)
+   Temperature: Found 1 outliers
+   Pressure: Found 8 outliers
+ Outlier detection complete for lora-v1: 100 -> 100 records
+ Loaded 100 historical records for device lora-v1
+ Time since last training for lora-v1: 1 days
+ Using existing models for lora-v1
+ Starting forecasting for lora-v1 (Station 1)
+ Available cumulative data: 100 historical records
+
+ Processing SO2 for lora-v1...
+2026-02-11 12:34:51.541051: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+ Loaded model from: saved_models/lora-v1/SO2_model.keras
+ Using existing model for SO2
+ Preparing forecasting data for SO2 using 100 historical records
+ Using features: ['SO2', 'SO2_rolling_3d', 'SO2_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for SO2 (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for SO2 (lora-v1):
+   2026-02-12: 3.78
+   2026-02-13: 3.61
+   2026-02-14: 3.47
+   2026-02-15: 3.19
+ Successfully forecasted SO2 for lora-v1
+
+ Processing PM2.5 for lora-v1...
+ Loaded model from: saved_models/lora-v1/PM2.5_model.keras
+ Using existing model for PM2.5
+ Preparing forecasting data for PM2.5 using 100 historical records
+ Using features: ['PM2.5', 'PM2.5_rolling_3d', 'PM2.5_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for PM2.5 (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for PM2.5 (lora-v1):
+   2026-02-12: 59.21
+   2026-02-13: 51.10
+   2026-02-14: 43.75
+   2026-02-15: 41.44
+ Successfully forecasted PM2.5 for lora-v1
+
+ Processing PM10 for lora-v1...
+ Loaded model from: saved_models/lora-v1/PM10_model.keras
+ Using existing model for PM10
+ Preparing forecasting data for PM10 using 100 historical records
+ Using features: ['PM10', 'PM10_rolling_3d', 'PM10_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for PM10 (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for PM10 (lora-v1):
+   2026-02-12: 63.47
+   2026-02-13: 58.29
+   2026-02-14: 53.10
+   2026-02-15: 50.66
+ Successfully forecasted PM10 for lora-v1
+
+ Processing NO2 for lora-v1...
+ Loaded model from: saved_models/lora-v1/NO2_model.keras
+ Using existing model for NO2
+ Preparing forecasting data for NO2 using 100 historical records
+ Using features: ['NO2', 'NO2_rolling_3d', 'NO2_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for NO2 (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for NO2 (lora-v1):
+   2026-02-12: 4.84
+   2026-02-13: 5.25
+   2026-02-14: 5.31
+   2026-02-15: 5.05
+ Successfully forecasted NO2 for lora-v1
+
+ Processing NH3 for lora-v1...
+ Loaded model from: saved_models/lora-v1/NH3_model.keras
+ Using existing model for NH3
+ Preparing forecasting data for NH3 using 100 historical records
+ Using features: ['NH3', 'NH3_rolling_3d', 'NH3_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for NH3 (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for NH3 (lora-v1):
+   2026-02-12: 3.32
+   2026-02-13: 3.16
+   2026-02-14: 3.01
+   2026-02-15: 2.85
+ Successfully forecasted NH3 for lora-v1
+
+ Processing CO for lora-v1...
+ Loaded model from: saved_models/lora-v1/CO_model.keras
+ Using existing model for CO
+ Preparing forecasting data for CO using 100 historical records
+ Using features: ['CO', 'CO_rolling_3d', 'CO_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for CO (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for CO (lora-v1):
+   2026-02-12: 0.01
+   2026-02-13: 0.01
+   2026-02-14: 0.01
+   2026-02-15: 0.01
+ Successfully forecasted CO for lora-v1
+
+ Processing O3 for lora-v1...
+ Loaded model from: saved_models/lora-v1/O3_model.keras
+ Using existing model for O3
+ Preparing forecasting data for O3 using 100 historical records
+ Using features: ['O3', 'O3_rolling_3d', 'O3_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for O3 (lora-v1)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for O3 (lora-v1):
+   2026-02-12: 5.87
+   2026-02-13: 5.98
+   2026-02-14: 6.08
+   2026-02-15: 6.05
+ Successfully forecasted O3 for lora-v1
+ Saving forecasts for lora-v1...
+ Forecast saved locally: forecast_lora_v1.csv
+ Dashboard JSON saved: forecast_lora_v1.json
+ Forecasts uploaded to S3 for lora-v1
+    Device folder: data/air_quality/lora-v1/latest_forecast.csv
+    Device folder: data/air_quality/lora-v1/latest_forecast.json
+    Root level: data/air_quality/latest_forecast_lora_v1.csv
+    Root level: data/air_quality/latest_forecast_lora_v1.json
+ Forecasting summary for lora-v1: 7/7 gases completed
+ Pipeline completed for lora-v1
+lora-v1: Forecasting completed successfully
+Generated: forecast_lora_v1.csv
+Generated: forecast_lora_v1.json
+
+ Starting ML forecasting for loradev2 (Station 2)
+Dataset: updated_real4_loradev2.csv (102 days, 7,788 bytes)
+ Loaded loradev2 cumulative dataset from local file: updated_real4_loradev2.csv
+ Applying outlier detection for loradev2 (Method: cap)
+   NO2: Found 6 outliers
+   NH3: Found 6 outliers
+   Pressure: Found 10 outliers
+ Outlier detection complete for loradev2: 102 -> 102 records
+ Loaded 102 historical records for device loradev2
+ Initialized pipeline for device: loradev2 (Station 2)
+ Cumulative dataset loaded: 102 records
+ Starting pipeline for loradev2 (Station 2)
+ Using cumulative dataset with 102 historical records
+ Loaded loradev2 cumulative dataset from local file: updated_real4_loradev2.csv
+ Applying outlier detection for loradev2 (Method: cap)
+   NO2: Found 6 outliers
+   NH3: Found 6 outliers
+   Pressure: Found 10 outliers
+ Outlier detection complete for loradev2: 102 -> 102 records
+ Loaded 102 historical records for device loradev2
+ Time since last training for loradev2: 1 days
+ Using existing models for loradev2
+ Starting forecasting for loradev2 (Station 2)
+ Available cumulative data: 102 historical records
+
+ Processing SO2 for loradev2...
+ Loaded model from: saved_models/loradev2/SO2_model.keras
+ Using existing model for SO2
+ Preparing forecasting data for SO2 using 102 historical records
+ Using features: ['SO2', 'SO2_rolling_3d', 'SO2_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for SO2 (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for SO2 (loradev2):
+   2026-02-12: 2.35
+   2026-02-13: 2.35
+   2026-02-14: 2.35
+   2026-02-15: 2.35
+ Successfully forecasted SO2 for loradev2
+
+ Processing PM2.5 for loradev2...
+ Loaded model from: saved_models/loradev2/PM2.5_model.keras
+ Using existing model for PM2.5
+ Preparing forecasting data for PM2.5 using 102 historical records
+ Using features: ['PM2.5', 'PM2.5_rolling_3d', 'PM2.5_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for PM2.5 (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for PM2.5 (loradev2):
+   2026-02-12: 57.71
+   2026-02-13: 57.62
+   2026-02-14: 56.59
+   2026-02-15: 55.32
+ Successfully forecasted PM2.5 for loradev2
+
+ Processing PM10 for loradev2...
+ Loaded model from: saved_models/loradev2/PM10_model.keras
+ Using existing model for PM10
+ Preparing forecasting data for PM10 using 102 historical records
+ Using features: ['PM10', 'PM10_rolling_3d', 'PM10_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for PM10 (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for PM10 (loradev2):
+   2026-02-12: 62.03
+   2026-02-13: 61.50
+   2026-02-14: 59.97
+   2026-02-15: 58.26
+ Successfully forecasted PM10 for loradev2
+
+ Processing NO2 for loradev2...
+ Loaded model from: saved_models/loradev2/NO2_model.keras
+ Using existing model for NO2
+ Preparing forecasting data for NO2 using 102 historical records
+ Using features: ['NO2', 'NO2_rolling_3d', 'NO2_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for NO2 (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for NO2 (loradev2):
+   2026-02-12: 10.37
+   2026-02-13: 10.56
+   2026-02-14: 10.66
+   2026-02-15: 10.64
+ Successfully forecasted NO2 for loradev2
+
+ Processing NH3 for loradev2...
+ Loaded model from: saved_models/loradev2/NH3_model.keras
+ Using existing model for NH3
+ Preparing forecasting data for NH3 using 102 historical records
+ Using features: ['NH3', 'NH3_rolling_3d', 'NH3_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for NH3 (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for NH3 (loradev2):
+   2026-02-12: 10.09
+   2026-02-13: 10.55
+   2026-02-14: 10.80
+   2026-02-15: 10.77
+ Successfully forecasted NH3 for loradev2
+
+ Processing CO for loradev2...
+ Loaded model from: saved_models/loradev2/CO_model.keras
+ Using existing model for CO
+ Preparing forecasting data for CO using 102 historical records
+ Using features: ['CO', 'CO_rolling_3d', 'CO_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for CO (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for CO (loradev2):
+   2026-02-12: 0.20
+   2026-02-13: 0.20
+   2026-02-14: 0.20
+   2026-02-15: 0.20
+ Successfully forecasted CO for loradev2
+
+ Processing O3 for loradev2...
+ Loaded model from: saved_models/loradev2/O3_model.keras
+ Using existing model for O3
+ Preparing forecasting data for O3 using 102 historical records
+ Using features: ['O3', 'O3_rolling_3d', 'O3_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for O3 (loradev2)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for O3 (loradev2):
+   2026-02-12: 3.46
+   2026-02-13: 3.46
+   2026-02-14: 3.46
+   2026-02-15: 3.46
+ Successfully forecasted O3 for loradev2
+ Saving forecasts for loradev2...
+ Forecast saved locally: forecast_loradev2.csv
+ Dashboard JSON saved: forecast_loradev2.json
+ Forecasts uploaded to S3 for loradev2
+    Device folder: data/air_quality/loradev2/latest_forecast.csv
+    Device folder: data/air_quality/loradev2/latest_forecast.json
+    Root level: data/air_quality/latest_forecast_loradev2.csv
+    Root level: data/air_quality/latest_forecast_loradev2.json
+ Forecasting summary for loradev2: 7/7 gases completed
+ Pipeline completed for loradev2
+loradev2: Forecasting completed successfully
+Generated: forecast_loradev2.csv
+Generated: forecast_loradev2.json
+
+ Starting ML forecasting for lora-v3 (Station 3)
+Dataset: updated_real4_lora_v3.csv (94 days, 6,535 bytes)
+ Loaded lora-v3 cumulative dataset from local file: updated_real4_lora_v3.csv
+ Applying outlier detection for lora-v3 (Method: cap)
+   Pressure: Found 21 outliers
+ Outlier detection complete for lora-v3: 94 -> 94 records
+ Loaded 94 historical records for device lora-v3
+ Initialized pipeline for device: lora-v3 (Station 3)
+ Cumulative dataset loaded: 94 records
+ Starting pipeline for lora-v3 (Station 3)
+ Using cumulative dataset with 94 historical records
+ Loaded lora-v3 cumulative dataset from local file: updated_real4_lora_v3.csv
+ Applying outlier detection for lora-v3 (Method: cap)
+   Pressure: Found 21 outliers
+ Outlier detection complete for lora-v3: 94 -> 94 records
+ Loaded 94 historical records for device lora-v3
+ Time since last training for lora-v3: 1 days
+ Using existing models for lora-v3
+ Starting forecasting for lora-v3 (Station 3)
+ Available cumulative data: 94 historical records
+
+ Processing SO2 for lora-v3...
+ Loaded model from: saved_models/lora-v3/SO2_model.keras
+ Using existing model for SO2
+ Preparing forecasting data for SO2 using 94 historical records
+ Using features: ['SO2', 'SO2_rolling_3d', 'SO2_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for SO2 (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for SO2 (lora-v3):
+   2026-02-06: 0.00
+   2026-02-07: 0.00
+   2026-02-08: 0.00
+   2026-02-09: 0.00
+ Successfully forecasted SO2 for lora-v3
+
+ Processing PM2.5 for lora-v3...
+ Loaded model from: saved_models/lora-v3/PM2.5_model.keras
+ Using existing model for PM2.5
+ Preparing forecasting data for PM2.5 using 94 historical records
+ Using features: ['PM2.5', 'PM2.5_rolling_3d', 'PM2.5_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for PM2.5 (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for PM2.5 (lora-v3):
+   2026-02-06: 63.54
+   2026-02-07: 63.80
+   2026-02-08: 63.67
+   2026-02-09: 65.35
+ Successfully forecasted PM2.5 for lora-v3
+
+ Processing PM10 for lora-v3...
+ Loaded model from: saved_models/lora-v3/PM10_model.keras
+ Using existing model for PM10
+ Preparing forecasting data for PM10 using 94 historical records
+ Using features: ['PM10', 'PM10_rolling_3d', 'PM10_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for PM10 (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for PM10 (lora-v3):
+   2026-02-06: 75.51
+   2026-02-07: 74.85
+   2026-02-08: 73.10
+   2026-02-09: 74.29
+ Successfully forecasted PM10 for lora-v3
+
+ Processing NO2 for lora-v3...
+ Loaded model from: saved_models/lora-v3/NO2_model.keras
+ Using existing model for NO2
+ Preparing forecasting data for NO2 using 94 historical records
+ Using features: ['NO2', 'NO2_rolling_3d', 'NO2_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for NO2 (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for NO2 (lora-v3):
+   2026-02-06: 0.00
+   2026-02-07: 0.00
+   2026-02-08: 0.00
+   2026-02-09: 0.00
+ Successfully forecasted NO2 for lora-v3
+
+ Processing NH3 for lora-v3...
+ Loaded model from: saved_models/lora-v3/NH3_model.keras
+ Using existing model for NH3
+ Preparing forecasting data for NH3 using 94 historical records
+ Using features: ['NH3', 'NH3_rolling_3d', 'NH3_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for NH3 (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for NH3 (lora-v3):
+   2026-02-06: 0.00
+   2026-02-07: 0.00
+   2026-02-08: 0.00
+   2026-02-09: 0.00
+ Successfully forecasted NH3 for lora-v3
+
+ Processing CO for lora-v3...
+ Loaded model from: saved_models/lora-v3/CO_model.keras
+ Using existing model for CO
+ Preparing forecasting data for CO using 94 historical records
+ Using features: ['CO', 'CO_rolling_3d', 'CO_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for CO (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for CO (lora-v3):
+   2026-02-06: 0.00
+   2026-02-07: 0.00
+   2026-02-08: 0.00
+   2026-02-09: 0.00
+ Successfully forecasted CO for lora-v3
+
+ Processing O3 for lora-v3...
+ Loaded model from: saved_models/lora-v3/O3_model.keras
+ Using existing model for O3
+ Preparing forecasting data for O3 using 94 historical records
+ Using features: ['O3', 'O3_rolling_3d', 'O3_rolling_7d']
+C:\Users\Meity-4\air-quality-forecasting\automated_pipeline.py:208: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df[feature].fillna(df[feature].mean(), inplace=True)
+ Generating 4-day forecast for O3 (lora-v3)
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+C:\Users\Meity-4\AppData\Local\Programs\Python\Python310\lib\site-packages\sklearn\utils\validation.py:2739: UserWarning: X does not have valid feature names, but StandardScaler was fitted with feature names
+  warnings.warn(
+ Forecast generated for O3 (lora-v3):
+   2026-02-06: 0.00
+   2026-02-07: 0.00
+   2026-02-08: 0.00
+   2026-02-09: 0.00
+ Successfully forecasted O3 for lora-v3
+ Saving forecasts for lora-v3...
+ Forecast saved locally: forecast_lora_v3.csv
+ Dashboard JSON saved: forecast_lora_v3.json
+ Forecasts uploaded to S3 for lora-v3
+    Device folder: data/air_quality/lora-v3/latest_forecast.csv
+    Device folder: data/air_quality/lora-v3/latest_forecast.json
+    Root level: data/air_quality/latest_forecast_lora-v3.csv
+    Root level: data/air_quality/latest_forecast_lora-v3.json
+ Forecasting summary for lora-v3: 7/7 gases completed
+ Pipeline completed for lora-v3
+lora-v3: Forecasting completed successfully
+Generated: forecast_lora_v3.csv
+Generated: forecast_lora_v3.json
+
+ PHASE 3: DASHBOARD GENERATION
+------------------------------
+
+ Generating combined dashboard...
+ Combined dashboard saved: multi_station_dashboard.json
+ Success rate: 3/3 devices
+
+ FINAL RESULTS:
+==============================
+lora-v1 (Station 1):
+   Data Update: 
+   ML Forecast:  
+loradev2 (Station 2):
+   Data Update: 
+   ML Forecast:  
+lora-v3 (Station 3):
+   Data Update: 
+   ML Forecast:  
+
+ GENERATED FILES:
+   forecast_lora_v1.csv
+   forecast_lora_v1.json
+   forecast_loradev2.csv
+   forecast_loradev2.json
+   forecast_lora_v3.csv
+   forecast_lora_v3.json
+multi_station_dashboard.json
+
+ INTEGRATED PIPELINE COMPLETE!

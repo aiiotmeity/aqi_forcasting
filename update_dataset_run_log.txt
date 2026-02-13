@@ -1,0 +1,75 @@
+===== DAILY DATASET UPDATE (ONE DAY = ONE AVERAGE) =====
+ Execution time: 2026-02-13 10:00:04
+Processing devices: ['lora-v1', 'loradev2', 'lora-v3']
+ Logic: Calculate daily averages from 10s interval data
+============================================================
+
+==================== PROCESSING lora-v1 ====================
+ Fetching ALL today's 10s interval data for: lora-v1
+ Looking for data from: 2026-02-13
+ Found 239 10s-interval records for today (2026-02-13)
+ Sample timestamp:  2026-02-13T00:00:30.222911863Z
+ Expected ~8640 records per day (24h * 60min * 6 per min)
+ Processing 239 10s-interval records for lora-v1
+ Processing summary: 239 successful, 0 errors
+ Data time range: 2026-02-13 00:00:30.222911+00:00 to 2026-02-13 04:30:01.013216+00:00
+
+ Daily averages calculated:
+   13-02-2026: 239 readings, PM2.5=86.08, Temp=30.5C  TODAY!
+ Loaded existing dataset for lora-v1: 100 days
+    Date range: 01-07-2025 to 31-10-2025
+
+ Updating cumulative dataset for lora-v1...
+ Adding 1 new days: [datetime.date(2026, 2, 13)]
+ Saved cumulative dataset: updated_real4_lora_v1.csv
+ Total days in dataset: 101
+ Date range: 01-07-2025 to 31-10-2025
+
+ Recent entries (last 5 days):
+   12-01-2026: PM2.5=26.65, Temp=22.0C, Readings=26
+   05-02-2026: PM2.5=49.27, Temp=165.6C, Readings=512
+   10-02-2026: PM2.5=90.62, Temp=30.5C, Readings=237
+   11-02-2026: PM2.5=83.33, Temp=30.3C, Readings=239
+   13-02-2026: PM2.5=86.08, Temp=30.5C, Readings=239  TODAY!
+ Successfully updated lora-v1
+
+==================== PROCESSING loradev2 ====================
+ Fetching ALL today's 10s interval data for: loradev2
+ Looking for data from: 2026-02-13
+ Found 407 10s-interval records for today (2026-02-13)
+ Sample timestamp:  2026-02-13T00:00:26.061324414Z
+ Expected ~8640 records per day (24h * 60min * 6 per min)
+ Processing 407 10s-interval records for loradev2
+ Processing summary: 407 successful, 0 errors
+ Data time range: 2026-02-13 00:00:26.061324+00:00 to 2026-02-13 04:34:11.816432+00:00
+
+ Daily averages calculated:
+   13-02-2026: 407 readings, PM2.5=61.15, Temp=30.4C  TODAY!
+ Loaded existing dataset for loradev2: 102 days
+    Date range: 01-01-2026 to 31-12-2025
+
+ Updating cumulative dataset for loradev2...
+ Adding 1 new days: [datetime.date(2026, 2, 13)]
+ Saved cumulative dataset: updated_real4_loradev2.csv
+ Total days in dataset: 103
+ Date range: 01-01-2026 to 31-12-2025
+
+ Recent entries (last 5 days):
+   05-02-2026: PM2.5=53.84, Temp=30.8C, Readings=440
+   06-02-2026: PM2.5=37.67, Temp=30.7C, Readings=219
+   10-02-2026: PM2.5=73.35, Temp=30.7C, Readings=424
+   11-02-2026: PM2.5=63.91, Temp=30.6C, Readings=423
+   13-02-2026: PM2.5=61.15, Temp=30.4C, Readings=407  TODAY!
+ Successfully updated loradev2
+
+==================== PROCESSING lora-v3 ====================
+ Fetching ALL today's 10s interval data for: lora-v3
+ Looking for data from: 2026-02-13
+ Found 0 10s-interval records for today (2026-02-13)
+ No data found for target date, getting recent days...
+ Fetching recent 7 days data for: lora-v3
+   2026-02-13: 0 records
+   2026-02-12: 0 records
+   2026-02-11: 0 records
+   2026-02-10: 0 records
+   2026-02-09: 0 records
