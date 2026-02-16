@@ -2,8 +2,9 @@ name: AQI Forecast Automation
 
 on:
   schedule:
-    - cron: '50 7 * * *'
+    - cron: '30 3 * * *'
   workflow_dispatch:
+
 
 
 jobs:
