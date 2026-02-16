@@ -2,9 +2,9 @@ name: AQI Forecast Automation
 
 on:
   schedule:
-   - cron: '10 6 * * *'
-   # Runs daily at midnight UTC
-  workflow_dispatch:      # Allow manual run
+    - cron: '25 6 * * *'
+  workflow_dispatch:
+    # Allow manual run
 
 jobs:
   run-pipeline:
@@ -26,5 +26,5 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_DEFAULT_REGION: us-east-1
+          AWS_DEFAULT_REGION: ap-south-1
         run: bash run_pipeline.sh
