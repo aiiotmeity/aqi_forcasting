@@ -247,7 +247,8 @@ def calculate_daily_averages(items, device_id):
 
 def load_existing_dataset(device_id):
     """Load existing cumulative dataset"""
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # FIX: Dynamically get the current directory instead of hardcoding a Linux path
+    BASE_DIR = os.getcwd()
     filename = os.path.join(BASE_DIR, f'updated_real4_{device_id.replace("-", "_")}.csv')
     
     if os.path.exists(filename):
