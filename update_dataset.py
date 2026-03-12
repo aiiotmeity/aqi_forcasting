@@ -247,7 +247,8 @@ def calculate_daily_averages(items, device_id):
 
 def load_existing_dataset(device_id):
     """Load existing cumulative dataset"""
-    filename = f'updated_real4_{device_id.replace("-", "_")}.csv'
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(BASE_DIR, f'updated_real4_{device_id.replace("-", "_")}.csv')
     
     if os.path.exists(filename):
         try:

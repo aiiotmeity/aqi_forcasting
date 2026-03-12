@@ -253,7 +253,8 @@ def process_and_update_csv(items, device_id):
     
     # Save CSV
     final_df = pd.DataFrame(csv_rows)
-    filename = f'updated_real4_{device_id.replace("-", "_")}.csv'
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(BASE_DIR, f'updated_real4_{device_id.replace("-", "_")}.csv')
     final_df.to_csv(filename, index=False)
     
     print(f"Updated {filename} with {len(final_df)} days of data")
